@@ -2,42 +2,51 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Test</title>
-        <link rel="stylesheet" href="/styles/resets.css">
+        <title>Evaluate a News Article with NLP</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!--<link rel="stylesheet" href="/styles/resets.css">
         <link rel="stylesheet" href="/styles/base.css">
         <link rel="stylesheet" href="/styles/header.css">
         <link rel="stylesheet" href="/styles/form.css">
-        <link rel="stylesheet" href="/styles/footer.css">
+        <link rel="stylesheet" href="/styles/footer.css">-->
     </head>
 
     <body>
 
         <header>
-            <div class="">
-                Logo
-            </div>
-            <div class="">
-                navigation
+            <div class="logo">
+                <h1>Sentiment Analyzer</h1>
             </div>
         </header>
 
         <main>
             <section>
-                <form class="" onsubmit="return handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
+                <form onsubmit="return handleSubmit(event)">
+                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Enter URL of the News Article header">
+                    <input type="submit" name="Submit" value="submit" onclick="return handleSubmit(event)" onsubmit="return handleSubmit(event)">
                 </form>
             </section>
 
             <section>
                 <strong>Form Results:</strong>
-                <div id="results"></div>
+                <div id="score"></div>
+                <div id="agreement"></div>
+                <div id="subjectivity"></div>
+                <div id="confidence"></div>
+                <div id="irony"></div>
             </section>
         </main>
 
         <footer>
-            <p>This is a footer</p>
+            <p>Sentiment Analysis Data provided by <a href="https://www.meaningcloud.com/developer/sentiment-analysis" target="_blank" rel="noopener noreferrer nofollow">Meaning Cloud API</a></p>
         </footer>
+
+        <script>
+            if('serviceWorker' in navigator){
+                window.addEventListener('load', () =>{navigator.serviceWorker.register('/service-worker.js')})
+            }
+        </script>
 
     </body>
 </html>
